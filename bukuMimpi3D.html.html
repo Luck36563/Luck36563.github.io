@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Language" content="en-us" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <title></title>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            .boxcontent {
+                background: linear-gradient(#366c94, #143463);
+                padding: 5px;
+                width: 290px;
+                margin: auto;
+                border: 10px double #ffffff;
+            }
+
+            .menutab {
+                list-style: none;
+                display: table;
+                margin: auto;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .menutab li {
+                float: left;
+                background: #4094d8;
+                border-radius: 3px;
+                margin-right: 3px;
+                padding: 2px 6px;
+                margin-bottom: 3px;
+                font-size: 14px;
+                border: 1px solid #ffffff;
+                cursor: url(img/cursor.png), move;
+            }
+
+            .menutab li.aktiftab,
+            .menutab li:hover {
+                background: #4094d8;
+                border: 1px solid #ffffff;
+                padding-bottom: 0px;
+                border-bottom: 3px solid #ffffff;
+            }
+
+            .loadinggif {
+                position: absolute;
+                left: 100px;
+                display: none;
+            }
+
+            .contentimage {
+                position: relative;
+            }
+
+            .imagegambar {
+                width: 100%;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper-BukuMimpi3D" style="background-color: transparent;">
+            <div class="boxcontent">
+                <strong><p style="text-align: center; font-size: 20px; margin-top: 0px; margin-bottom: 5px; color: #ffffff;">Buku Mimpi 3D</p></strong>
+                <ul class="menutab">
+                    <li class="aktiftab" gambar="img/001-048.jpg">001 - 048</li>
+                    <li gambar="img/049-096.jpg">049 - 096</li>
+                    <li gambar="img/097-144.jpg">097 - 144</li>
+                    <li gambar="img/145-192.jpg">145 - 192</li>
+                    <li gambar="img/193-240.jpg">193 - 240</li>
+                    <li gambar="img/241-288.jpg">241 - 288</li>
+                    <li gambar="img/289-336.jpg">289 - 336</li>
+                    <li gambar="img/337-384.jpg">337 - 384</li>
+                    <li gambar="img/385-432.jpg">385 - 432</li>
+                    <li gambar="img/433-480.jpg">433 - 480</li>
+                    <li gambar="img/481-528.jpg">481 - 528</li>
+                    <li gambar="img/529-576.jpg">529 - 576</li>
+                    <li gambar="img/577-624.jpg">577 - 624</li>
+                    <li gambar="img/625-672.jpg">625 - 672</li>
+                    <li gambar="img/673-720.jpg">673 - 720</li>
+                    <li gambar="img/721-768.jpg">721 - 768</li>
+                    <li gambar="img/769-816.jpg">769 - 816</li>
+                    <li gambar="img/817-864.jpg">817 - 864</li>
+                    <li gambar="img/865-912.jpg">865 - 912</li>
+                    <li gambar="img/913-960.jpg">913 - 960</li>
+                    <li gambar="img/961-000.jpg">961 - 000</li>
+                </ul>
+                <div class="contentimage">
+                    <img class="imagegambar" src="img/001-048.jpg" />
+                    <img class="loadinggif" src="img/loading.gif" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    $(".menutab li").click(function () {
+        $(".menutab li").removeClass("aktiftab");
+        $(this).addClass("aktiftab");
+        var gambar = $(this).attr("gambar");
+        $(".loadinggif").hide();
+        //$(".imagegambar").attr("src",gambar);
+
+        image = new Image();
+
+        image.onload = function () {
+            $(".loadinggif").hide("puff", function () {
+                $(".imagegambar").attr("src", gambar);
+            });
+        };
+
+        image.src = gambar;
+    });
+</script>
